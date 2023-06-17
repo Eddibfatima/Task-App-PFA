@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Dashboard</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+  <script defer type="text/javascript" src="{{url_for('static',filename='dash.js')}}"></script>
+  <script defer type="text/javascript" src="{{url_for('static',filename='dash2.js')}}"></script>
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+          <img src="{{url_for('static',filename='images/logo1.png')}}" alt="Logo" />
+
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="/dashboard" class="active">
+          <span class="material-icons-sharp"> dashboard </span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="{{url_for('views.description', task_id=current_user.id)}}">
+          <span class="material-icons-sharp">description</span>
+          <h3>Description</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">chat</span>
+          <h3>Chat</h3>
+          <span class="message-count">5</span>
+        </a>
+        <a href="/projects/{{current_user.username}}">
+          <span class="material-icons-sharp">bar_chart</span>
+          <h3>Projects</h3>
+        </a>
+        <a href="/search_result">
+          <span class="material-icons-sharp">search</span>
+          <h3>Search</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">notifications</span>
+          <h3>Notifications</h3>
+        </a>
+        <a href="/profile/{{current_user.id}}">
+          <span class="material-icons-sharp">account_circle</span>
+          <h3>Profile</h3>
+        </a>
+
+        <a href="/tasks">
+          <span class="material-icons-sharp"> add </span>
+          <h3>New task</h3>
+        </a>
+
+        <!-- <span class="material-icons-sharp" a href="/logout"> logout </span> -->
+        <a href="/logout"><span class="material-icons-sharp">logout</span>
+          <h3>logout</h3>
+        </a>
+
+      </div>
+    </aside>
+
+    <main>
+      <div class="search-bar">
+        {{form.hidden_tag()}}
+        <form action="{{url_for('views.search_result')}}" method="POST">
+          <input type="search" name="searched" placeholder="search for Task"><button type="submit"><span
+              class="material-icons-sharp">search</span></button>
+        </form>
+      </div>
+      <h1>Dashboard</h1>
+
+      <div class="date">
+        <input type="date" />
+      </div>
+      <br>
+      <br>
+      <div class="all">
+        <div class="slider">
+          <img src="{{url_for('static',filename='images/image.png')}}" alt="photo">
+          <div class="text">
+            <h1>Welcome to ProTask manager</h1>
+            <br>
+            <p>where you can manage your tasks easily.</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="insights">
+        <!-- open tasks -->
+        {%include "open_task.html"%}
+        <!-- in progress -->
+        {%include "progress.html"%}
+        <!-- completed task -->
+        {%include "completed.html"%}
+
+
+      </div>
+      <div class="recent-tasks">
+        <h2>Recent Tasks</h2>
+        <table id="recent-tasks--table">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Task Name</th>
+              <th>Hours</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <!-- Add tbody here | JS insertion -->
+        </table>
+        <a href="#">Show All</a>
+      </div>
+    </main>
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp"> menu </span>
+        </button>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp active" id='light'> light_mode </span>
+          <span class="material-icons-sharp" id='dark'> dark_mode </span>
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Hey, <b>{{current_user.username}}</b></p>
+
+          </div>
+          <div class="profile-photo">
+            <span class="material-icons-sharp">person</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-updates">
+        <!-- <h2>Recent Updates</h2>
+        <!-- Add updates div here | JS insertion -->
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+</body>
+
+</html>

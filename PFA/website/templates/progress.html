@@ -1,0 +1,24 @@
+<div class="expenses">
+    <span class="material-icons-sharp">update</span>
+    <div class="middle">
+        <div class="left">
+            <h2>In progress tasks</h2>
+            {% for t in tasks%}
+            <p>task: {{t.ongoing_task}}</p>
+            <p>ongoing : {{t.date_created}}</p>
+            <p>created by: {{t.user.username}}</p>
+            {%if current_user.id==t.operator%}
+            {%endif%}
+            {%endfor%}
+        </div>
+        <div class="progress">
+            <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+            </svg>
+            <div class="number">
+                <p>62%</p>
+            </div>
+        </div>
+    </div>
+    <small class="text-muted"> Last 24 hours </small>
+</div>

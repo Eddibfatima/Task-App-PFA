@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+    <title>Welcome to ProTask</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img class="lg-hd" height=" 200px" src="{{url_for('static',filename='images/logo1.png')}}" alt="">
+            <button class="btn-try"><a href="./register"
+                    style="text-decoration:none; color:black;">Register</a></button>
+        </nav>
+        <section>
+            <div class="build-comm">
+                <h3>Construct And Organize Your Work With Ease With ProTask</h3>
+                <p>ProTask is here to help you plannify and monitor your tasks progress. Helps with Teamwork and
+                    establish order in daily work. </p>
+                <button class="btn-start"><a href="/login" style="text-decoration:none;color:white;"> Sign in
+                    </a></button>
+            </div>
+            <div>
+                <img class="mockup" src="{{url_for('static',filename='images/illustration-intro.png')}}" alt="">
+            </div>
+        </section>
+    </header>
+    <main>
+        <article class="article-sect">
+            <div class="article-text">
+                <h3>Grow Together</h3>
+                <p>Efficiency is the key to success, and our task management app is here to help you unlock your full
+                    potential. Create
+                    tasks, set deadlines, and prioritize your work with ease.</p>
+            </div>
+            <img class="svgs" src="{{url_for('static',filename='images/undraw_accept_tasks_re_09mv.svg')}}" alt="">
+        </article>
+        <article class="article-sect reverse">
+            <img class="svgs" src="{{url_for('static',filename='images/undraw_completed_tasks_vs6q.svg')}}" alt="">
+            <div class="article-text">
+                <h3>Flowing Conversations</h3>
+                <p>Collaboration made simple! Our task management app enables you to share tasks with colleagues,
+                    friends, or family
+                    members effortlessly. Delegate responsibilities, track progress, and communicate effectively within
+                    the app.</p>
+            </div>
+        </article>
+        <article class="article-sect">
+            <div class="article-text">
+                <h3>Your Users</h3>
+                <p>Our app allows you to break down complex projects into smaller, manageable subtasks, ensuring you
+                    stay on top of your
+                    workload.</p>
+            </div>
+            <img class="svgs" src="{{url_for('static',filename='images/undraw_task_list_6x9d.svg')}}" alt="">
+        </article>
+    </main>
+    <footer>
+
+        <div class=" ft-sct">
+            <div class="ft-part">
+                <img class="lg-ft" src="{{url_for('static',filename='images/logo1.png')}}" alt="">
+                <div class="ft-loc">
+                    <img height="20px" src="./images/icon-location.svg" alt="">
+                    <p>Lorem ipsum dolor, sit amet consectetur
+                    </p>
+                </div>
+                <div class="ft-loc">
+                    <img src="./images/icon-phone.svg" alt="">
+                    <p>+1-543-123-4567</p>
+                </div>
+                <div class="ft-loc">
+                    <img src="./images/icon-email.svg" alt="">
+                    <p>example@huddle.com</p>
+                </div>
+            </div>
+            <div class="ft-part">
+                <p>About us</p>
+                <p>What We Do</p>
+                <p>FAQ</p>
+
+            </div>
+            <div class="ft-part">
+                <p>Carrer</p>
+                <p>Blog</p>
+                <p>Contact Us</p>
+            </div>
+
+
+        </div>
+    </footer>
+</body>
+
+</html>

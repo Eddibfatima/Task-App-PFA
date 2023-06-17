@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <script defer type="text/javascript" src="{{url_for('static',filename='dash.js')}}"></script>
+    <script defer type="text/javascript" src="{{url_for('static',filename='dash2.js')}}"></script>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{{url_for('static',filename='images/logo1.png')}}" alt="Logo" />
+
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="/dashboard" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="/description">
+                    <span class="material-icons-sharp">description</span>
+                    <h3>Description</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">chat</span>
+                    <h3>Chat</h3>
+                    <span class="message-count">5</span>
+                </a>
+                <a href="/projects">
+                    <span class="material-icons-sharp">bar_chart</span>
+                    <h3>Projects</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">notifications</span>
+                    <h3>Notifications</h3>
+                </a>
+                <a href="/profile/{{current_user.id}}">
+                    <span class="material-icons-sharp">account_circle</span>
+                    <h3>Profile</h3>
+                </a>
+
+                <a href="/tasks">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3>New task</h3>
+                </a>
+
+                <!-- <span class="material-icons-sharp" a href="/logout"> logout </span> -->
+                <a href="/logout"><span class="material-icons-sharp">logout</span>
+                    <h3>logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Dashboard</h1>
+            <div class="date">
+                <input type="date" />
+            </div>
+            <div class="insights">
+                <form action="" method="POST">
+                    <input type="text" name="task_to_update" required>
+                    <textarea name="task_descriptif_to_update" id="" cols="30" rows="10"></textarea>
+                    <button>submit</button>
+            </div>
+        </main>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active" id='light'> light_mode </span>
+                    <span class="material-icons-sharp" id='dark'> dark_mode </span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>{{current_user.username}}</b></p>
+
+                    </div>
+                    <div class="profile-photo">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-updates">
+                <h2>Recent Updates</h2>
+                <!-- Add updates div here | JS insertion -->
+            </div>
+
+            <div class="project-analytics">
+                <h2>Project Analytics</h2>
+                <div id="analytics">
+                    <!-- Add items div here | JS insertion -->
+                </div>
+                <div class="item add-product">
+                    <div>
+                        <span class="material-icons-sharp"> add </span>
+                        <h3>Add Project</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

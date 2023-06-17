@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <script defer type="text/javascript" src="{{url_for('static',filename='dash.js')}}"></script>
+    <script defer type="text/javascript" src="{{url_for('static',filename='dash2.js')}}"></script>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{{url_for('static',filename='images/logo1.png')}}" alt="Logo" />
+
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="/dashboard" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="/description/{{current_user.id}}">
+                    <span class="material-icons-sharp">description</span>
+                    <h3>Description</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">chat</span>
+                    <h3>Chat</h3>
+                    <span class="message-count">5</span>
+                </a>
+                <a href="/projects/{{current_user.username}}">
+                    <span class="material-icons-sharp">bar_chart</span>
+                    <h3>Projects</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">notifications</span>
+                    <h3>Notifications</h3>
+                </a>
+                <a href="/profile/{{current_user.id}}">
+                    <span class="material-icons-sharp">account_circle</span>
+                    <h3>Profile</h3>
+                </a>
+
+                <a href="/tasks">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3>New task</h3>
+                </a>
+
+                <!-- <span class="material-icons-sharp" a href="/logout"> logout </span> -->
+                <a href="/logout"><span class="material-icons-sharp">logout</span>
+                    <h3>logout</h3>
+                </a>
+
+            </div>
+        </aside>
+
+        <main>
+            <h1>Dashboard</h1>
+
+            <div class="date">
+                <input type="date" />
+            </div>
+
+            <div class="insights profile-page">
+                <!-- open tasks -->
+                <div class="sales">
+                    <span class="material-icons-sharp">account_circle</span>
+                    <div class=" middle">
+                        <div class="left">
+                            <img src="data:image/png;base64,{{user.picture }} " alt="">
+                            <picture src="{{user.picture}}" alt="">{{user.pictuer}}
+
+                                <h2>{{user.filename}}</h2>
+                                <h2>{{user.mimetype}}</h2>
+                                <h2>User profile: {{user.username}}</h2>
+                                <h2>Job: {{user.job}}</h2>
+                                <h2>full name: {{user.first_name}} {{user.last_name}}</h2>
+                                <h2>email: {{user.email}}</h2>
+                                <button class="btn2"> update your profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update-form">
+                <form action="" enctype="multipart/form-data" method="POST">
+                    <label for="username">
+                        username
+                    </label>
+                    <input type="text" name="username" placeholder="updated your username" required>
+                    <label for="first name">
+                        First Name
+                    </label>
+                    <input type="text" name="first_name" placeholder="Enter your first name" required>
+                    <label for="last name">
+                        Last Name
+                    </label>
+                    <input type="text" name="last_name" placeholder="Enter your  last name" required>
+                    <label for="job">
+                        Job title
+                    </label>
+                    <input type="text" name="job" placeholder="Enter your job title" required>
+                    <label for="email">
+                        Email
+                    </label>
+                    <input type="email" name="email" placeholder="Update your email" required>
+                    <label for="password">
+                        Password
+                    </label>
+                    <input type="password" name="password" placeholder="Update your password" required>
+                    <input type="file" name="picture">
+        
+                </form>
+                    <button class="submit">submit</button>
+            </div>
+        </main>
+
+        <div class=" right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active" id='light'> light_mode </span>
+                    <span class="material-icons-sharp" id='dark'> dark_mode </span>
+                </div>
+                <div class="profile ">
+                    <div class="info">
+                        <p>Hey, <b>{{user.username}}</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./constants/recent-tasks-data.js"></script>
+        <script src="./constants/update-data.js"></script>
+        <script src="./constants/project-analytics-data.js"></script>
+
+</body>
+
+</html>
